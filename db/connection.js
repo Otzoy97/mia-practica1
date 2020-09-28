@@ -1,6 +1,7 @@
 const mysql = require('mysql')
 
 const db = mysql.createPool({
+    multipleStatements: true,
     connectionLimit: 150,
     host: 'localhost',
     user: 'root',
