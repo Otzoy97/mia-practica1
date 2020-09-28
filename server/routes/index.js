@@ -12,5 +12,9 @@ app.use(require('./consulta7'))
 app.use(require('./consulta8'))
 app.use(require('./consulta9'))
 app.use(require('./consulta10'))
+app.use(require('./cargarModelo'))
+app.use(require('./cargarTemporal'))
+app.use(require('./eliminarModelo'))
+app.use(require('./eliminarTemporal'))
 
 module.exports = app;
