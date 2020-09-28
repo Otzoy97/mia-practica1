@@ -6,7 +6,7 @@ let app = express();
  * Crear tablas y cargar info desde temp_table
  */
 app.get("/cargarModelo", async (req, res) => {
-    await execQuery(`DROP TABLE IF EXISTS DET_TRANS, PRODUCTO, CAT_PRODUCTO, COMPANIA, ROL, UBICACION, PERSONA, TRANSACCION;
+    await execQuery(`DROP TABLE IF EXISTS DET_TRANS, PRODUCTO, CAT_PRODUCTO, TRANSACCION, COMPANIA, PERSONA, ROL, UBICACION;
     
     CREATE TABLE IF NOT EXISTS COMPANIA (
         idCompania INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -115,7 +115,7 @@ app.get("/cargarModelo", async (req, res) => {
     SELECT DISTINCT(PERSONA.idPersona), COMPANIA.idCompania
     FROM PERSONA, COMPANIA, temp_table
     WHERE temp_table.nombre = PERSONA.nombre AND
-    temp_table.nombre_compania = COMPANIA.nombre
+    temp_table.nombre_compania = COMPANIA.nombre;
     -- ------------------------------
     -- TABLA DET_TRANS
     -- ------------------------------
