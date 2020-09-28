@@ -15,3 +15,5 @@ app.get("/eliminarTemporal", async (req, res) => {
             })
         })
 })
+
+module.exports = app;

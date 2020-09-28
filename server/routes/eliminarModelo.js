@@ -22,3 +22,5 @@ app.get("/eliminarModelo", async (req, res) => {
             })
         })
 })
+
+module.exports = app;

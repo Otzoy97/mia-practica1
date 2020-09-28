@@ -60,3 +60,5 @@ app.get("/cargarTemporal", async (req, res) => {
             })
         })
 })
+
+module.exports = app;
