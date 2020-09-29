@@ -18,7 +18,7 @@ app.get("/consulta3", async (req, res) => {
     WHERE ROL.nombre = 'C'
     GROUP BY 1,2,3,4
     ORDER BY 5 DESC
-    LIMIT 1)
+    LIMIT 5)
     UNION
     (SELECT UBICACION.direccion,
     UBICACION.region, 
@@ -32,7 +32,7 @@ app.get("/consulta3", async (req, res) => {
     WHERE ROL.nombre = 'C'
     GROUP BY 1,2,3,4
     ORDER BY 5 ASC
-    LIMIT 1);`)
+    LIMIT 5);`)
         .then((serverResponse) => res.json(serverResponse))
         .catch(e => {
             return res.status(400).json({

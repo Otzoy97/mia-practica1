@@ -10,6 +10,10 @@ app.get("/consulta6", async (req, res) => {
     SUM(DET_TRANS.cantidad * PRODUCTO.precio) as 'Ref.'
     FROM DET_TRANS INNER JOIN PRODUCTO ON DET_TRANS.idProducto = PRODUCTO.idProducto
     INNER JOIN CAT_PRODUCTO ON PRODUCTO.idCategoria = CAT_PRODUCTO.idCategoria
+    INNER JOIN TRANSACCION ON TRANSACCION.idTransaccion = DET_TRANS.idTransaccion
+    INNER JOIN PERSONA ON TRANSACCION.idPersona = PERSONA.idPersona
+    INNER JOIN ROL ON PERSONA.idRol = ROL.idRol
+    WHERE ROL.nombre = 'C'
     GROUP BY 1
     ORDER BY 2 DESC
     LIMIT 1)
@@ -17,6 +21,10 @@ app.get("/consulta6", async (req, res) => {
     (SELECT CAT_PRODUCTO.nombre, SUM(DET_TRANS.cantidad * PRODUCTO.precio)
     FROM DET_TRANS INNER JOIN PRODUCTO ON DET_TRANS.idProducto = PRODUCTO.idProducto
     INNER JOIN CAT_PRODUCTO ON PRODUCTO.idCategoria = CAT_PRODUCTO.idCategoria
+    INNER JOIN TRANSACCION ON TRANSACCION.idTransaccion = DET_TRANS.idTransaccion
+    INNER JOIN PERSONA ON TRANSACCION.idPersona = PERSONA.idPersona
+    INNER JOIN ROL ON PERSONA.idRol = ROL.idRol
+    WHERE ROL.nombre = 'C'
     GROUP BY 1
     ORDER BY 2 ASC
     LIMIT 1);`)

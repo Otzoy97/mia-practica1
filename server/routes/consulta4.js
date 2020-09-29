@@ -9,7 +9,7 @@ app.get("/consulta4", async (req, res) => {
     await execQuery(`SELECT PERSONA.idPersona as 'No. Cliente', 
     PERSONA.nombre as 'Nombre', 
     COUNT(TRANSACCION.idTransaccion) as 'Cant. de ordenes', 
-    SUM(DET_TRANS.cantidad) as 'Total'
+    SUM(DET_TRANS.cantidad * PRODUCTO.precio) as 'Total (Q.)'
     FROM
     ROL INNER JOIN PERSONA ON ROL.idRol = PERSONA.idRol
     INNER JOIN TRANSACCION ON PERSONA.idPersona = TRANSACCION.idPersona
